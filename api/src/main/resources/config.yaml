@@ -1,0 +1,28 @@
+kumuluzee:
+  name: basketball-leaderboard
+  env:
+    name: dev
+  version: 1.0.0
+  server:
+    base-url: http://localhost:8087
+    http:
+      port: 8087
+  datasources:
+    - jndi-name: jdbc/leaderboardDS
+      connection-url: jdbc:postgresql://localhost:5432/leaderboard
+      username: dbuser
+      password: postgres
+  health:
+    checks:
+      data-source-health-check:
+        type: liveness
+        jndi-name: jdbc/leaderboardDS
+  metrics:
+    web-instrumentation:
+      - name: leaderboard-endpoint
+        url-pattern: /v1/leaderboard/*
+  rest-client:
+    registrations:
+      - class: api
+        url: http://localhost:8087/v1
+        read-timeout: 5000
