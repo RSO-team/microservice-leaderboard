@@ -9,9 +9,9 @@ kumuluzee:
       port: 8087
   datasources:
     - jndi-name: jdbc/leaderboardDS
-      connection-url: jdbc:postgresql://localhost:5432/leaderboard
-      username: dbuser
-      password: postgres
+      connection-url: jdbc:postgresql://pg-events.clvqrwayazxs.eu-central-1.rds.amazonaws.com/leaderboard
+      username: postgres
+      password: postgres12
   health:
     checks:
       data-source-health-check:
