@@ -1,1 +1,19 @@
-INSERT INTO image_metadata (title, description, width, height, created, uri) VALUES ('Our fist image', 'This is the first image that we created for the RSO course.', 1280, 1325, TIMESTAMP '2006-01-01 15:36:38', 'https://www.nasa.gov/sites/default/files/styles/full_width/public/thumbnails/image/tess_first_light-tb.jpg');
+insert into leaderboard (name,description) VALUES ('best of 3','This category is best of 3');
+insert into leaderboard (name,description) VALUES ('best of 5','This category is best of 5');
+insert into leaderboard (name,description) VALUES ('best of 7','This category is best of 7');
+insert into leaderboard (name,description) VALUES ('best of 10','This category is best of 10');
+
+insert into score (userid,score,leaderboard_id) VALUES (1,10,1);
+insert into score  (userid,score,leaderboard_id)VALUES (2,50,1);
+insert into score  (userid,score,leaderboard_id)VALUES (3,70,1);
+insert into score  (userid,score,leaderboard_id)VALUES (4,80,1);
+
+insert into score  (userid,score,leaderboard_id)VALUES (1,10,2);
+insert into score  (userid,score,leaderboard_id)VALUES (2,50,2);
+insert into score  (userid,score,leaderboard_id)VALUES (3,70,2);
+insert into score  (userid,score,leaderboard_id)VALUES (4,80,2);
+
+insert into score  (userid,score,leaderboard_id)VALUES (1,10,3);
+insert into score  (userid,score,leaderboard_id)VALUES (2,50,3);
+insert into score  (userid,score,leaderboard_id)VALUES (3,70,4);
+insert into score  (userid,score,leaderboard_id)VALUES (4,80,4);

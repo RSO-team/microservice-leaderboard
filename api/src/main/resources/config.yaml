@@ -23,6 +23,9 @@ kumuluzee:
         url-pattern: /v1/leaderboard/*
   rest-client:
     registrations:
-      - class: api
+      - class: leaderboard-api
         url: http://localhost:8087/v1
         read-timeout: 5000
+rest-config:
+  maintenance-mode: false
+  api-token: htn12kss3

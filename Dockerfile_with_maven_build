@@ -6,6 +6,6 @@ RUN mvn --show-version --update-snapshots --batch-mode clean package
 FROM adoptopenjdk:15-jre-hotspot
 RUN mkdir /app
 WORKDIR /app
-COPY --from=build ./app/api/target/api-1.0.0.jar /app
-EXPOSE 8080
-CMD ["java", "-jar", "api-1.0.0.jar"]
+COPY --from=build ./app/basketball-leaderboards-api/target/basketball-leaderboards-api-1.0.0.jar /app
+EXPOSE 8087
+CMD ["java", "-jar", "basketball-leaderboards-api-1.0.0.jar"]
