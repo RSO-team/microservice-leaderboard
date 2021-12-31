@@ -59,7 +59,7 @@ public class LeaderboardsResource {
     @Operation(summary = "Get leaderboard by id.", description = "Returns specific leaderboard.")
     @APIResponses({
             @APIResponse(
-                    description = "Returned successfully specific leaderboard entery",
+                    description = "Returned successfully specific leaderboard entry",
                     responseCode = "200",
                     content = @Content(schema = @Schema(implementation = LeaderboardDto.class, type = SchemaType.ARRAY))
             )
@@ -69,10 +69,10 @@ public class LeaderboardsResource {
     }
 
     @POST
-    @Operation(summary = "Create new leaderboard entery ", description = "Create new leaderboard entery")
+    @Operation(summary = "Create new leaderboard entry ", description = "Create new leaderboard entry")
     @APIResponses({
             @APIResponse(
-                    description = "Created successfully leaderboard entery",
+                    description = "Created successfully leaderboard entry",
                     responseCode = "201",
                     content = @Content(schema = @Schema(implementation = LeaderboardDto.class, type = SchemaType.ARRAY))
             )
@@ -86,7 +86,7 @@ public class LeaderboardsResource {
     @Operation(summary = "Update leaderboard.", description = "Updates specific leaderboard by id.")
     @APIResponses({
             @APIResponse(
-                    description = "Updated successfully leaderboard entery",
+                    description = "Updated successfully leaderboard entry",
                     responseCode = "201",
                     content = @Content(schema = @Schema(implementation = LeaderboardDto.class, type = SchemaType.ARRAY))
             )
@@ -100,7 +100,7 @@ public class LeaderboardsResource {
     @Operation(summary = "Delete leaderboard.", description = "Delete specific leaderboard by id.")
     @APIResponses({
             @APIResponse(
-                    description = "Deleted successfully leaderboard entery",
+                    description = "Deleted successfully leaderboard entry",
                     responseCode = "204",
                     content = @Content(schema = @Schema(implementation = LeaderboardDto.class, type = SchemaType.ARRAY))
             )
