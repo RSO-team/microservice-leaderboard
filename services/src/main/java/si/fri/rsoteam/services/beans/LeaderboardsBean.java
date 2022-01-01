@@ -1,4 +1,6 @@
 package si.fri.rsoteam.services.beans;
+import com.kumuluz.ee.logs.LogManager;
+import com.kumuluz.ee.logs.Logger;
 import org.eclipse.microprofile.metrics.annotation.Timed;
 import si.fri.rsoteam.entities.LeaderboardEntity;
 import si.fri.rsoteam.lib.dtos.LeaderboardDto;
@@ -8,19 +10,13 @@ import si.fri.rsoteam.services.mappers.LeaderboardMapper;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.core.Response;
 import java.util.List;
-import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 
 @RequestScoped
 public class LeaderboardsBean {
-    private Logger log = Logger.getLogger(LeaderboardsBean.class.getName());
+    private Logger log = LogManager.getLogger(LeaderboardsBean.class.getName());
 
     @Inject
     private EntityManager em;
