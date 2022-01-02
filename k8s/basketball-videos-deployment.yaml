@@ -1,23 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: basketball-exercises-deployment
+  name: basketball-leaderboards-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: basketball-exercises
+      app: basketball-leaderboards
   template:
     metadata:
       labels:
-        app: basketball-exercises
+        app: basketball-leaderboards
     spec:
       containers:
-        - image: lgaljo/rt_basketball_exercises:latest
-          name: basketball-exercises
+        - image: lgaljo/rt_basketball_leaderboards:latest
+          name: basketball-leaderboards
           env:
             - name: KUMULUZEE_DATASOURCES0_CONNECTIONURL
-              value: jdbc:postgresql://pg-events.clvqrwayazxs.eu-central-1.rds.amazonaws.com/exercises
+              value: jdbc:postgresql://pg-events.clvqrwayazxs.eu-central-1.rds.amazonaws.com/leaderboards
             - name: KUMULUZEE_DATASOURCES0_USERNAME
               value: postgres
             - name: KUMULUZEE_DATASOURCES0_PASSWORD
@@ -46,7 +46,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: basketball-exercises
+  name: basketball-leaderboards
 spec:
   type: LoadBalancer
   ports:
@@ -54,4 +54,4 @@ spec:
       protocol: TCP
       targetPort: server
   selector:
-    app: basketball-exercises
+    app: basketball-leaderboards
