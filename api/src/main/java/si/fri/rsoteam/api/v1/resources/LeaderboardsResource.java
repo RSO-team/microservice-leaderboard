@@ -1,5 +1,9 @@
 package si.fri.rsoteam.api.v1.resources;
 
+import com.kumuluz.ee.logs.LogManager;
+import com.kumuluz.ee.logs.Logger;
+import com.kumuluz.ee.logs.cdi.Log;
+import com.kumuluz.ee.logs.cdi.LogParams;
 import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.enums.SchemaType;
 import org.eclipse.microprofile.openapi.annotations.headers.Header;
@@ -24,7 +28,6 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
-import java.util.logging.Logger;
 
 @ApplicationScoped
 @Path("/leaderboards")
@@ -32,7 +35,7 @@ import java.util.logging.Logger;
 @Consumes(MediaType.APPLICATION_JSON)
 public class LeaderboardsResource {
 
-    private Logger log = Logger.getLogger(LeaderboardsResource.class.getName());
+    private Logger log = LogManager.getLogger(LeaderboardsResource.class.getName());
 
     @Inject
     private LeaderboardsBean leaderboardsBean;
@@ -50,6 +53,7 @@ public class LeaderboardsResource {
                     headers = {@Header(name = "X-Total-Count", description = "Number of objects in list")}
             )
     })
+    @Log(LogParams.METRICS)
     public Response getLeaderboards() {
         return Response.ok(leaderboardsBean.getAllLeaderboards()).build();
     }
@@ -64,6 +68,7 @@ public class LeaderboardsResource {
                     content = @Content(schema = @Schema(implementation = LeaderboardDto.class, type = SchemaType.ARRAY))
             )
     })
+    @Log(LogParams.METRICS)
     public Response getLeaderboardById(@PathParam("objectId") Integer id) {
         return Response.ok(leaderboardsBean.getLeaderboard(id)).build();
     }
@@ -77,6 +82,7 @@ public class LeaderboardsResource {
                     content = @Content(schema = @Schema(implementation = LeaderboardDto.class, type = SchemaType.ARRAY))
             )
     })
+    @Log(LogParams.METRICS)
     public Response createLeaderboard(LeaderboardDto leaderboardDto) {
         return Response.status(201).entity(leaderboardsBean.createLeaderboard(leaderboardDto)).build();
     }
@@ -91,6 +97,7 @@ public class LeaderboardsResource {
                     content = @Content(schema = @Schema(implementation = LeaderboardDto.class, type = SchemaType.ARRAY))
             )
     })
+    @Log(LogParams.METRICS)
     public Response updateLeaderboard(@PathParam("objectId") Integer id, LeaderboardDto eventDto) {
         return Response.status(201).entity(leaderboardsBean.updateLeaderboard(eventDto, id)).build();
     }
@@ -105,6 +112,7 @@ public class LeaderboardsResource {
                     content = @Content(schema = @Schema(implementation = LeaderboardDto.class, type = SchemaType.ARRAY))
             )
     })
+    @Log(LogParams.METRICS)
     public Response deleteEvent(@PathParam("objectId") Integer id) {
         leaderboardsBean.deleteLeaderboard(id);
         return Response.status(204).build();
