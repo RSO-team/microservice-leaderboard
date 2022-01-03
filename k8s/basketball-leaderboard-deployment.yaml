@@ -13,7 +13,7 @@ spec:
         app: basketball-leaderboards
     spec:
       containers:
-        - image: lgaljo/rt_basketball_leaderboards:latest
+        - image: lgaljo/rt_basketball_leaderboard:latest
           name: basketball-leaderboards
           env:
             - name: KUMULUZEE_DATASOURCES0_CONNECTIONURL
