@@ -12,7 +12,8 @@ kumuluzee:
       connection-url: jdbc:postgresql://ella.db.elephantsql.com/cdcwpsdb
       username: cdcwpsdb
       password: 41oBNtTWN_6p0TmO5b0kGsh5_bP6d3ew
-      max-pool-size: 1
+      pool:
+        max-size: 1
   health:
     checks:
       data-source-health-check:
